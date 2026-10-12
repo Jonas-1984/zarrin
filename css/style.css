@@ -509,21 +509,6 @@ h1, h2, h3, p { margin: 0; }
 .about-photo:hover img { transform: scale(1.05); }
 @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
 
-.values { display: grid; grid-template-columns: repeat(4, 1fr); gap: 22px; }
-.value { padding: 30px 24px; text-align: center; transition: transform 0.5s var(--ease), border-color 0.4s; }
-.value:hover { transform: translateY(-8px); border-color: var(--gold); }
-.value .num {
-  display: block;
-  font-size: 34px;
-  font-weight: 800;
-  margin-bottom: 6px;
-  background: var(--gold-gradient);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-}
-.value h3 { font-size: 20px; margin-bottom: 8px; }
-.value p { font-size: 15px; color: var(--text-dim); line-height: 1.8; }
 
 .services { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
 .service { padding: 34px 28px; transition: transform 0.5s var(--ease), border-color 0.4s, box-shadow 0.5s; }
@@ -633,7 +618,6 @@ h1, h2, h3, p { margin: 0; }
 /* ---------- Responsive ---------- */
 @media (max-width: 980px) {
   .cards, .services { grid-template-columns: 1fr 1fr; }
-  .values { grid-template-columns: 1fr 1fr; }
   .intro-panel, .about-grid, .contact-grid { grid-template-columns: 1fr; }
   .intro-panel { padding: 36px 28px; gap: 28px; }
 }
@@ -665,7 +649,7 @@ h1, h2, h3, p { margin: 0; }
 @media (max-width: 640px) {
   body { font-size: 16px; }
   .section { padding-block: 70px; }
-  .cards, .services, .values, .form-row { grid-template-columns: 1fr; }
+  .cards, .services, .form-row { grid-template-columns: 1fr; }
   .card { height: 380px; }
   .hero-content { padding: 32px 20px; }
   .about-text, .form { padding: 28px 22px; }
