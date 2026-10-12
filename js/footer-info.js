@@ -22,7 +22,7 @@
 
   // --- icons (layers selected by weather condition) ----------------------
   var SUN = '<g transform="translate(%X% %Y%) scale(%S%)"><circle stroke-width=".5" stroke="#f8af18" fill="url(#fw-b)" r="5" cy="24" cx="19"/><path d="M19 15.67V12.5m0 23v-3.17m5.89-14.22l2.24-2.24M10.87 32.13l2.24-2.24m0-11.78l-2.24-2.24m16.26 16.26l-2.24-2.24M7.5 24h3.17m19.83 0h-3.17" stroke-width="2" stroke-linecap="round" stroke="#fbbf24" fill="none"><animateTransform values="0 19 24; 360 19 24" type="rotate" repeatCount="indefinite" dur="45s" attributeName="transform"/></path></g>';
-  var MOON = '<g transform="translate(%X% %Y%) scale(%S%)"><path d="M26 31.5A10 10 0 1 1 16 14a8 8 0 0 0 10 17.5z" fill="#fde68a" stroke="#f8af18" stroke-width=".5"/></g>';
+  var MOON = '<g transform="translate(%X% %Y%) scale(%S%)"><path d="M23.5 16.2A9 9 0 1 0 23.5 31.8A8 8 0 0 1 23.5 16.2z" fill="#fde68a" stroke="#f8af18" stroke-width=".5" stroke-linejoin="round"/><circle cx="30" cy="17" r="1" fill="#fde68a"/><circle cx="33.5" cy="23" r=".7" fill="#fde68a"/></g>';
   var CLOUD = '<path d="M46.5 31.5h-.32a10.49 10.49 0 00-19.11-8 7 7 0 00-10.57 6 7.21 7.21 0 00.1 1.14A7.5 7.5 0 0018 45.5a4.19 4.19 0 00.5 0v0h28a7 7 0 000-14z" stroke-width=".5" stroke="#e6effc" fill="url(#fw-c)"/>';
   var RAIN = '<g stroke-width="2" stroke-linecap="round" stroke="url(#fw-a)" fill="none">' +
     '<path d="M24.39 43.03l-.78 4.94"><animateTransform values="1 -5; -2 10" type="translate" repeatCount="indefinite" dur="0.7s" attributeName="transform"/></path>' +
@@ -39,7 +39,8 @@
     '<linearGradient gradientUnits="userSpaceOnUse" y2="48.05" y1="42.95" x2="25.47" x1="22.53" id="fw-a"><stop stop-color="#4286ee" offset="0"/><stop stop-color="#4286ee" offset=".45"/><stop stop-color="#0950bc" offset="1"/></linearGradient></defs>';
 
   function body(day, alone) {
-    var t = alone ? ["12", "8", "1.25"] : ["0", "0", "1"];
+    // centre the sun / moon in the 64x64 icon when it is shown without a cloud
+    var t = alone ? (day ? ["7", "1", "1.3"] : ["3", "-9", "1.7"]) : ["0", "0", "1"];
     return (day ? SUN : MOON).replace("%X%", t[0]).replace("%Y%", t[1]).replace("%S%", t[2]);
   }
 
