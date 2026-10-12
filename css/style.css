@@ -248,28 +248,33 @@ h1, h2, h3, p { margin: 0; }
   bottom: 28px;
   inset-inline: 0;
   margin-inline: auto;
-  width: 26px;
-  height: 42px;
-  border: 1px solid var(--gold);
-  border-radius: 14px;
-  opacity: 0.8;
+  width: 34px;
+  height: 56px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  filter: drop-shadow(0 0 6px rgba(0, 0, 0, 0.6));
 }
-.scroll-hint::after {
-  content: "";
-  position: absolute;
-  top: 8px;
-  inset-inline: 0;
-  margin-inline: auto;
-  width: 3px;
-  height: 8px;
-  border-radius: 2px;
-  background: var(--gold-light);
-  animation: wheel 2s ease-in-out infinite;
+/* three gold chevrons that light up one after another, pointing down */
+.scroll-hint i {
+  display: block;
+  width: 16px;
+  height: 16px;
+  margin-top: -5px;
+  border-right: 2.5px solid var(--gold-light);
+  border-bottom: 2.5px solid var(--gold-light);
+  transform: rotate(45deg);
+  opacity: 0;
+  animation: chevron 1.8s ease-in-out infinite;
 }
-@keyframes wheel {
-  0% { opacity: 0; transform: translateY(0); }
-  30% { opacity: 1; }
-  100% { opacity: 0; transform: translateY(14px); }
+.scroll-hint i:nth-child(1) { animation-delay: 0s; }
+.scroll-hint i:nth-child(2) { animation-delay: 0.25s; }
+.scroll-hint i:nth-child(3) { animation-delay: 0.5s; }
+.scroll-hint:hover i { border-color: #fff; }
+@keyframes chevron {
+  0% { opacity: 0; translate: 0 -6px; }
+  40% { opacity: 1; }
+  100% { opacity: 0; translate: 0 8px; }
 }
 
 /* ---------- Moving vehicles (plane / ship / truck) ---------- */
@@ -660,4 +665,19 @@ h1, h2, h3, p { margin: 0; }
   *, *::before, *::after { animation-duration: 0.001s !important; animation-iteration-count: 1 !important; transition-duration: 0.001s !important; }
   .reveal, .fade-up { opacity: 1; transform: none; }
   .mover { transform: translate(calc(50vw - 50%), -50%); }
+}
+
+/* ---------- Page title: dark glass panel ---------- */
+.page-hero .container {
+  max-width: 760px;
+  padding: 40px 32px 44px;
+  border-radius: 28px;
+  border: 1px solid var(--line);
+  background: rgba(17, 18, 21, 0.55);
+  -webkit-backdrop-filter: blur(16px) saturate(130%);
+  backdrop-filter: blur(16px) saturate(130%);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.45), inset 0 1px 0 rgba(255, 255, 255, 0.06);
+}
+@media (max-width: 640px) {
+  .page-hero .container { padding: 28px 20px 32px; }
 }
