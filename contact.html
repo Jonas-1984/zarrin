@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title data-i18n="contact.pagetitle">تماس با ما | زرین گستران</title>
+  <meta name="description" content="راه‌های ارتباط با شرکت زرین گستران.">
+  <meta name="theme-color" content="#111215">
+  <link rel="icon" href="images/Logo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="brand" href="index.html" aria-label="زرین گستران"><img src="images/Logo.png" alt="زرین گستران هفت آسمان"></a>
+    <nav class="nav" id="nav">
+      <a href="index.html" data-i18n="nav.home">صفحه اصلی</a>
+      <a href="about.html" data-i18n="nav.about">درباره ما</a>
+      <a href="activities.html" data-i18n="nav.activities">فعالیت ها</a>
+      <a href="contact.html" class="active" data-i18n="nav.contact">تماس با ما</a>
+      <button class="lang-switch" type="button" aria-label="Language">EN</button>
+    </nav>
+    <button class="nav-toggle" type="button" aria-label="منو" aria-expanded="false" aria-controls="nav"><span></span></button>
+  </div>
+</header>
+
+<main>
+  <section class="page-hero">
+    <div class="container">
+      <div class="ornament fade-up"><i></i></div>
+      <h1 class="fade-up gold-text" style="--d:.15s" data-i18n="nav.contact">تماس با ما</h1>
+      <p class="fade-up" style="--d:.3s" data-i18n="contact.sub">منتظر شنیدن صدای شما هستیم</p>
+    </div>
+  </section>
+
+  <section class="section" style="padding-top:40px">
+    <div class="container">
+      <div class="contact-grid">
+        <div class="contact-info">
+          <!-- TODO: replace "به‌زودی" with the real address / phone / email -->
+          <div class="info-item glass reveal">
+            <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s7-6.2 7-11.5A7 7 0 0 0 5 9.5C5 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg></span>
+            <div><h3 data-i18n="contact.address">آدرس</h3><p data-i18n="contact.soon">به‌زودی</p></div>
+          </div>
+          <div class="info-item glass reveal" style="--d:.1s">
+            <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/></svg></span>
+            <div><h3 data-i18n="contact.phone">تلفن</h3><p data-i18n="contact.soon">به‌زودی</p></div>
+          </div>
+          <div class="info-item glass reveal" style="--d:.2s">
+            <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg></span>
+            <div><h3 data-i18n="contact.email">ایمیل</h3><p data-i18n="contact.soon">به‌زودی</p></div>
+          </div>
+        </div>
+
+        <form class="form glass reveal" id="contact-form" style="--d:.15s" novalidate>
+          <h2 data-i18n="form.title">ارسال پیام</h2>
+          <div class="form-row">
+            <div class="field">
+              <label for="f-name" data-i18n="form.name">نام و نام خانوادگی</label>
+              <input id="f-name" name="name" type="text" required>
+            </div>
+            <div class="field">
+              <label for="f-contact" data-i18n="form.contact">ایمیل یا شماره تماس</label>
+              <input id="f-contact" name="contact" type="text" required>
+            </div>
+          </div>
+          <div class="field">
+            <label for="f-subject" data-i18n="form.subject">موضوع</label>
+            <input id="f-subject" name="subject" type="text">
+          </div>
+          <div class="field">
+            <label for="f-message" data-i18n="form.message">پیام شما</label>
+            <textarea id="f-message" name="message" required></textarea>
+          </div>
+          <button class="btn btn-gold" type="submit" data-i18n="form.send">ارسال</button>
+          <p class="form-status" role="status"></p>
+        </form>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <img src="images/Logo.png" alt="زرین گستران هفت آسمان">
+        <p data-i18n="footer.about">شرکت زرین گستران با تخصص در صادرات و واردات، خدمات تجاری با کیفیتی را در سطح بین‌المللی ارائه می‌دهد</p>
+      </div>
+      <div>
+        <h4 data-i18n="footer.links">دسترسی سریع</h4>
+        <ul>
+          <li><a href="index.html" data-i18n="nav.home">صفحه اصلی</a></li>
+          <li><a href="about.html" data-i18n="nav.about">درباره ما</a></li>
+          <li><a href="activities.html" data-i18n="nav.activities">فعالیت ها</a></li>
+          <li><a href="contact.html" data-i18n="nav.contact">تماس با ما</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 data-i18n="footer.company">شرکت</h4>
+        <ul>
+          <li data-i18n="footer.reg">شماره ثبت: ۶۱۴۳۵۷</li>
+          <li data-i18n="footer.field">صادرات و واردات</li>
+        </ul>
+      </div>
+    </div>
+    <p class="copyright" data-i18n="footer.copy">© ۲۰۲۶ زرین گستران هفت آسمان. تمامی حقوق محفوظ است.</p>
+  </div>
+</footer>
+
+<script src="js/config.js"></script>
+<script src="js/lang/en.js"></script>
+<script src="js/main.js"></script>
+<script src="js/i18n.js"></script>
+</body>
+</html>
