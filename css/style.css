@@ -729,3 +729,9 @@ h1, h2, h3, p { margin: 0; }
   .intro-panel { padding: 28px 20px; }
   .intro-panel p { text-align: start; }
 }
+
+/* wide icons (truck) keep their aspect ratio */
+.vehicle svg.wide { width: 1.9em; height: 1em; }
+.service .ico svg.wide { width: 1.5em; height: 0.8em; }
+.lane-sea .mover { --size: 62px; --y: 58%; }
+.lane-land .mover { --size: 46px; }
