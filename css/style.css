@@ -814,3 +814,38 @@ html[dir="ltr"] .clock-list { direction: ltr; }
 .lane .vehicle.ship { position: relative; top: -0.33em; }
 .lane .vehicle.truck { position: relative; top: -0.38em; }
 @media (max-width: 640px) { .service-img { height: 210px; } .service-body { padding: 24px 22px 28px; } }
+
+/* Contact form: smaller send button + consent switch */
+.btn-sm { padding: 8px 30px; font-size: 15px; }
+.form .btn-sm { justify-self: start; }
+
+.switch { display: flex; align-items: center; gap: 12px; cursor: pointer; user-select: none; }
+.switch input { position: absolute; opacity: 0; width: 1px; height: 1px; }
+.switch .track {
+  position: relative;
+  flex: none;
+  width: 44px;
+  height: 24px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  transition: background 0.3s, border-color 0.3s, box-shadow 0.3s;
+}
+.switch .track::after {
+  content: "";
+  position: absolute;
+  top: 2px;
+  inset-inline-start: 2px;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: #cfcabd;
+  transition: transform 0.3s var(--ease), background 0.3s;
+}
+.switch input:checked + .track { background: var(--gold-gradient); border-color: transparent; }
+.switch input:checked + .track::after { background: #17130a; transform: translateX(-20px); }
+html[dir="ltr"] .switch input:checked + .track::after { transform: translateX(20px); }
+.switch input:focus-visible + .track { box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.35); }
+.switch-text { font-size: 14.5px; line-height: 1.8; color: var(--text-dim); }
+.switch.invalid .track { border-color: #e5736b; animation: shake 0.4s; }
+@keyframes shake { 25% { transform: translateX(-4px); } 75% { transform: translateX(4px); } }

@@ -45,8 +45,18 @@
   var form = document.getElementById("contact-form");
   if (form) {
     var status = form.querySelector(".form-status");
+    form.querySelector("#f-consent").addEventListener("change", function () {
+      this.closest(".switch").classList.remove("invalid");
+      if (this.checked) { status.textContent = ""; }
+    });
     form.addEventListener("submit", function (e) {
       e.preventDefault();
+      var consent = form.querySelector("#f-consent");
+      if (!consent.checked) {
+        consent.closest(".switch").classList.add("invalid");
+        status.textContent = "برای ارسال پیام، لطفاً با سیاست حفظ حریم خصوصی موافقت کنید.";
+        return;
+      }
       var cfg = window.SITE_CONFIG || {};
       var data = new FormData(form);
 

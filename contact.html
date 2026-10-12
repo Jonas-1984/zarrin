@@ -81,7 +81,12 @@
             <label for="f-message" data-i18n="form.message">پیام شما</label>
             <textarea id="f-message" name="message" required></textarea>
           </div>
-          <button class="btn btn-gold" type="submit" data-i18n="form.send">ارسال</button>
+          <label class="switch" for="f-consent">
+            <input id="f-consent" name="consent" type="checkbox" role="switch">
+            <span class="track" aria-hidden="true"></span>
+            <span class="switch-text" data-i18n="form.consent">با سیاست حفظ حریم خصوصی و استفاده از اطلاعات واردشده موافقم.</span>
+          </label>
+          <button class="btn btn-gold btn-sm" type="submit" data-i18n="form.send">ارسال</button>
           <p class="form-status" role="status"></p>
         </form>
       </div>
