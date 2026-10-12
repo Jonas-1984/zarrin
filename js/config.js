@@ -4,5 +4,5 @@ window.SITE_CONFIG = {
   //  formEndpoint – e.g. a Formspree URL ("https://formspree.io/f/xxxx"); the form is POSTed there.
   //  email        – opens the visitor's mail client with a prefilled message.
   formEndpoint: "",
-  email: ""
+  email: "zarringostaran@zarrin7.com"
 };
