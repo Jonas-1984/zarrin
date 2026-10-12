@@ -490,24 +490,20 @@ h1, h2, h3, p { margin: 0; }
 @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
 
 
-.services { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
-.service { padding: 34px 28px; transition: transform 0.5s var(--ease), border-color 0.4s, box-shadow 0.5s; }
-.service:hover { transform: translateY(-8px); border-color: var(--gold); box-shadow: 0 18px 50px rgba(0, 0, 0, 0.5), 0 0 30px rgba(212, 175, 55, 0.12); }
-.service .ico {
-  width: 62px;
-  height: 62px;
-  display: grid;
-  place-items: center;
-  margin-bottom: 20px;
-  border: 1px solid var(--line);
-  border-radius: 16px;
-  font-size: 32px;
-  color: var(--gold-light);
-  background: rgba(212, 175, 55, 0.06);
+.services { display: grid; grid-template-columns: repeat(2, 1fr); gap: 28px; align-items: stretch; }
+.service {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  transition: transform 0.5s var(--ease), border-color 0.4s, box-shadow 0.5s;
 }
-.service .ico svg { width: 1em; height: 1em; }
-.service h3 { font-size: 21px; margin-bottom: 8px; }
-.service p { font-size: 15.5px; color: var(--text-dim); line-height: 1.9; }
+.service:hover { transform: translateY(-8px); border-color: var(--gold); box-shadow: 0 18px 50px rgba(0, 0, 0, 0.5), 0 0 30px rgba(212, 175, 55, 0.12); }
+.service-img { position: relative; height: 260px; overflow: hidden; border-bottom: 1px solid var(--line); }
+.service-img img { width: 100%; height: 100%; object-fit: cover; transition: transform 1.2s var(--ease); }
+.service:hover .service-img img { transform: scale(1.07); }
+.service-body { padding: 30px 32px 34px; }
+.service h3 { font-size: 22px; line-height: 1.7; margin-bottom: 10px; color: var(--gold-light); }
+.service p { font-size: 16px; color: var(--text-dim); line-height: 2.05; text-align: justify; }
 
 /* Contact */
 .contact-grid { display: grid; grid-template-columns: 1fr 1.25fr; gap: 28px; align-items: start; }
@@ -597,7 +593,7 @@ h1, h2, h3, p { margin: 0; }
 
 /* ---------- Responsive ---------- */
 @media (max-width: 980px) {
-  .cards, .services { grid-template-columns: 1fr 1fr; }
+  .cards { grid-template-columns: 1fr 1fr; }
   .intro-panel, .about-grid, .contact-grid { grid-template-columns: 1fr; }
   .intro-panel { padding: 36px 28px; gap: 28px; }
 }
@@ -709,7 +705,6 @@ h1, h2, h3, p { margin: 0; }
 
 /* wide icons (truck) keep their aspect ratio */
 .vehicle svg.wide { width: 1.9em; height: 1em; }
-.service .ico svg.wide { width: 1.5em; height: 0.8em; }
 .lane-sea .mover { --size: 58px; }
 .lane-land .mover { --size: 46px; }
 
@@ -816,3 +811,4 @@ html[dir="ltr"] .clock-list { direction: ltr; }
 /* Ship keeps its waterline, truck its wheels, exactly on the dashed route line */
 .lane .vehicle.ship { position: relative; top: -0.33em; }
 .lane .vehicle.truck { position: relative; top: -0.38em; }
+@media (max-width: 640px) { .service-img { height: 210px; } .service-body { padding: 24px 22px 28px; } }
