@@ -102,47 +102,8 @@
     </div>
   </section>
 
-  <!-- ===== Moving vehicles ===== -->
-  <section class="section">
-    <div class="container">
-      <div class="section-head reveal">
-        <h2 data-i18n="lanes.title">هر مسیر، یک اتصال</h2>
-        <p data-i18n="lanes.sub">از آسمان، دریا و خشکی، کالای شما را به مقصد می‌رسانیم</p>
-      </div>
-      <div class="lanes">
-        <div class="lane lane-air glass reveal">
-          <span class="lane-tag" data-i18n="lane.air">حمل هوایی</span>
-          <div class="lane-track" aria-hidden="true">
-            <div class="mover">
-              <span class="trail"></span>
-              <span class="vehicle plane"><svg viewBox="0 0 24 24"><path fill="currentColor" d="M14 8.947L22 14v2l-8-2.526v5.36l3 1.666V22l-4.5-1L8 22v-1.5l3-1.667v-5.36L3 16v-2l8-5.053V3.5a1.5 1.5 0 0 1 3 0z"/></svg></span>
-            </div>
-          </div>
-        </div>
-        <div class="lane lane-sea glass reveal" style="--d:.1s">
-          <span class="lane-tag" data-i18n="lane.sea">حمل دریایی</span>
-          <div class="lane-track" aria-hidden="true">
-            <div class="mover">
-              <span class="trail"></span>
-              <span class="vehicle ship"><svg viewBox="0 0 32 32" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M18.5 29.5c1.38 0 2.061-.55 2.5-1.5c.42.95 1.12 1.5 2.5 1.5s2.029-.52 2.5-1.5c.47 1 1.12 1.5 2.5 1.5c.965 0 1.582-.244 2.02-.732"/><path d="M3.5 26.5c1.38 0 2.061-.55 2.5-1.5c.42.95 1.12 1.5 2.5 1.5s2.029-.52 2.5-1.5c.47 1 1.12 1.5 2.5 1.5S15.55 26 16 25c.5.97 1.12 1.5 2.5 1.5s2.02-.52 2.5-1.5c.45.98 1.12 1.5 2.5 1.5"/><path d="M27.5 16.5l-5-6L22 7.5H5.9l-.5 3H4l-1.5 6"/><path d="M27.5 16.5h3l-3.44 7.64c-.64 1.44-2.069 2.36-3.649 2.36"/><path d="M3.36 24.573c-.235-.39-.408-.825-.5-1.293L1.5 16.5h22"/><path d="M13.5 7.5h-5l.5-3h2.5zM19.5 4.5v3"/><path d="M24.5 18.5h1M20.5 14.5h1M5.5 14.5h1M8.5 14.5h1M11.5 14.5h1M14.5 14.5h1M17.5 14.5h1M6.5 12.5h1M9.5 12.5h1M12.5 12.5h1M15.5 12.5h1M18.5 12.5h1M7.5 10.5h1M10.5 10.5h1M13.5 10.5h1M16.5 10.5h1M20.5 10.5h2"/></g></svg></span>
-            </div>
-          </div>
-        </div>
-        <div class="lane lane-land glass reveal" style="--d:.2s">
-          <span class="lane-tag" data-i18n="lane.land">حمل زمینی</span>
-          <div class="lane-track" aria-hidden="true">
-            <div class="mover">
-              <span class="trail"></span>
-              <span class="vehicle truck"><svg class="wide" viewBox="-2 -2 126.88 66" aria-hidden="true"><path fill="currentColor" fill-rule="evenodd" clip-rule="evenodd" d="M105.01,40.54c-5.7,0-10.3,4.63-10.3,10.3c0,5.7,4.63,10.3,10.3,10.3c5.7,0,10.3-4.63,10.3-10.3 C115.31,45.14,110.68,40.54,105.01,40.54L105.01,40.54z M61.86,41.46c-5.2,0-9.38,4.22-9.38,9.38c0,5.2,4.22,9.38,9.38,9.38 c5.2,0,9.38-4.22,9.38-9.38C71.24,45.64,67.02,41.46,61.86,41.46L61.86,41.46z M61.86,47.23c-1.99,0-3.61,1.62-3.61,3.61 s1.62,3.61,3.61,3.61c1.99,0,3.61-1.62,3.61-3.61S63.85,47.23,61.86,47.23L61.86,47.23z M24.11,41.46c-5.2,0-9.38,4.22-9.38,9.38 c0,5.2,4.22,9.38,9.38,9.38c5.2,0,9.38-4.22,9.38-9.38C33.5,45.64,29.28,41.46,24.11,41.46L24.11,41.46z M24.11,47.23 c-1.99,0-3.61,1.62-3.61,3.61s1.62,3.61,3.61,3.61c1.99,0,3.61-1.62,3.61-3.61S26.11,47.23,24.11,47.23L24.11,47.23z M47.37,53.53 H38.1v-3.01h9.27V53.53L47.37,53.53z M10.46,53.53H5.63c-1.55,0-2.95-0.66-3.96-1.71c-1.01-1.05-1.65-2.5-1.65-4.02V8.06 c0-2.44-0.36-4.44,1.62-6.42C2.66,0.63,4.05,0,5.6,0h73.32c1.55,0,2.95,0.63,3.96,1.65c1.01,1.01,1.65,2.41,1.65,3.96l0,7.26 l10.27,0.07l3.62,0.02l0,0c0.73,0.79,1.4,1.6,2.01,2.42c2.71,3.64,4.23,7.94,4.52,12.11l16.38,6.27l1.55,16.51h-5.01 c-2.31-18.03-25.03-15.84-25.73,0l-7.61,0v1.74c0,0.86-0.67,1.52-1.52,1.52l-6.69,0v-3.04h5.16V5.61c0-0.7-0.28-1.33-0.76-1.81 c-0.48-0.48-1.11-0.76-1.81-0.76H5.6c-0.7,0-1.33,0.29-1.81,0.76C2.76,4.77,3.07,6.43,3.07,7.7v40.1c0,0.73,0.32,1.43,0.79,1.93 c0.48,0.48,1.08,0.79,1.77,0.79h4.82V53.53L10.46,53.53z M94.46,17.89l-5.83-0.09v9.69h11.02C99.12,23.98,97.49,20.9,94.46,17.89 L94.46,17.89z M105.01,46.88c-2.19,0-3.96,1.77-3.96,3.96c0,2.19,1.77,3.96,3.96,3.96c2.19,0,3.96-1.77,3.96-3.96 C108.97,48.65,107.2,46.88,105.01,46.88L105.01,46.88z"/><path fill="none" stroke="currentColor" stroke-width="2.2" opacity=".5" d="M16 9v28M28 9v28M40 9v28M52 9v28M64 9v28"/></svg></span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
   <!-- ===== World clocks ===== -->
-  <section class="section" style="padding-top:0">
+  <section class="section">
     <div class="container">
       <div class="clocks glass reveal">
         <div class="clocks-grid">
