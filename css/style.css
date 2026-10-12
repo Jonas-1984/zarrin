@@ -434,7 +434,7 @@ h1, h2, h3, p { margin: 0; }
 }
 .lane-tag {
   position: absolute;
-  top: 10px;
+  bottom: 10px;
   inset-inline-start: 18px;
   z-index: 2;
   font-size: 13px;
@@ -710,7 +710,7 @@ h1, h2, h3, p { margin: 0; }
 /* wide icons (truck) keep their aspect ratio */
 .vehicle svg.wide { width: 1.9em; height: 1em; }
 .service .ico svg.wide { width: 1.5em; height: 0.8em; }
-.lane-sea .mover { --size: 62px; --y: 58%; }
+.lane-sea .mover { --size: 58px; }
 .lane-land .mover { --size: 46px; }
 
 /* ---------- World clocks + Tehran weather ---------- */
@@ -812,3 +812,7 @@ html[dir="ltr"] .clock-list { direction: ltr; }
   .globe { width: 210px; height: 210px; }
 }
 .page-hero h1:last-child { margin-bottom: 0; }
+
+/* Ship keeps its waterline, truck its wheels, exactly on the dashed route line */
+.lane .vehicle.ship { position: relative; top: -0.33em; }
+.lane .vehicle.truck { position: relative; top: -0.38em; }
