@@ -467,17 +467,6 @@ h1, h2, h3, p { margin: 0; }
 .lane-sea .mover { --dur: 15s; --delay: 2s; --size: 60px; }
 .lane-land .mover { --dur: 11s; --delay: 1s; --size: 50px; }
 
-/* CTA */
-.cta {
-  text-align: center;
-  padding: 64px 28px;
-  background:
-    radial-gradient(circle at 50% 0%, rgba(212, 175, 55, 0.16), transparent 70%),
-    var(--glass);
-}
-.cta h2 { font-size: clamp(24px, 3.2vw, 34px); margin-bottom: 12px; font-weight: 800; }
-.cta p { color: var(--text-dim); margin-bottom: 28px; }
-
 /* ---------- Inner pages ---------- */
 .page-hero {
   position: relative;
@@ -735,3 +724,89 @@ h1, h2, h3, p { margin: 0; }
 .service .ico svg.wide { width: 1.5em; height: 0.8em; }
 .lane-sea .mover { --size: 62px; --y: 58%; }
 .lane-land .mover { --size: 46px; }
+
+/* ---------- World clocks (flip style) ---------- */
+.clocks { padding: 12px 40px; max-width: 860px; margin-inline: auto; }
+.clock-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 24px 0;
+  border-bottom: 1px solid rgba(212, 175, 55, 0.16);
+}
+.clock-row:last-child { border-bottom: 0; }
+.clock-city { font-size: 24px; font-weight: 800; line-height: 1.5; color: var(--gold-light); }
+.clock-city small { display: block; font-size: 13px; font-weight: 400; letter-spacing: 0.08em; color: var(--text-dim); }
+
+.clock { --w: 48px; --h: 72px; direction: ltr; display: flex; align-items: center; gap: 7px; }
+.clock .sep { width: 12px; text-align: center; font-size: 34px; font-weight: 800; color: var(--gold); animation: blink 1s steps(2, start) infinite; }
+@keyframes blink { 50% { opacity: 0.25; } }
+
+.digit {
+  position: relative;
+  width: var(--w);
+  height: var(--h);
+  perspective: 500px;
+  border-radius: 10px;
+  box-shadow: 0 10px 22px rgba(0, 0, 0, 0.55), 0 0 0 1px rgba(212, 175, 55, 0.22);
+}
+.digit::after { /* centre split line */
+  content: "";
+  position: absolute;
+  inset: calc(50% - 1px) 0 auto 0;
+  height: 2px;
+  background: #0d0e10;
+  z-index: 6;
+}
+.digit .half {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 50%;
+  overflow: hidden;
+  background: linear-gradient(180deg, #2c3037, #23262c);
+  color: var(--gold-light);
+  font-size: calc(var(--h) * 0.68);
+  font-weight: 800;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.4), 0 2px 5px rgba(0, 0, 0, 0.35);
+}
+.digit .half span {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: var(--h);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+}
+.digit .top { top: 0; border-radius: 10px 10px 0 0; }
+.digit .top span { top: 0; }
+.digit .bottom { bottom: 0; border-radius: 0 0 10px 10px; background: linear-gradient(180deg, #202329, #1a1c21); }
+.digit .bottom span { top: calc(var(--h) / -2); }
+
+.digit .leaf {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 50%;
+  display: none;
+  transform-origin: 50% 100%;
+  transform-style: preserve-3d;
+  transition: transform 0.6s ease-in;
+  z-index: 5;
+}
+.digit .leaf.on { display: block; }
+.digit .leaf.go { transform: rotateX(-180deg); }
+.digit .leaf .half { top: 0; height: 100%; backface-visibility: hidden; }
+.digit .leaf .back { transform: rotateX(180deg); }
+
+@media (max-width: 640px) {
+  .clocks { padding: 6px 18px; }
+  .clock-row { flex-direction: column; align-items: center; gap: 12px; padding: 22px 0; }
+  .clock-city { display: flex; align-items: baseline; gap: 10px; font-size: 21px; }
+  .clock { --w: 38px; --h: 58px; gap: 5px; }
+  .clock .sep { width: 8px; font-size: 26px; }
+}

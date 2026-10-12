@@ -143,13 +143,22 @@
     </div>
   </section>
 
-  <!-- ===== CTA ===== -->
+  <!-- ===== World clocks ===== -->
   <section class="section" style="padding-top:0">
     <div class="container">
-      <div class="cta glass reveal">
-        <h2 data-i18n="cta.title">آماده‌ی همکاری هستیم</h2>
-        <p data-i18n="cta.text">برای مشاوره و دریافت اطلاعات بیشتر با ما در تماس باشید</p>
-        <a class="btn btn-gold" href="contact.html" data-i18n="cta.btn">تماس با ما</a>
+      <div class="clocks glass reveal">
+        <div class="clock-row">
+          <div class="clock-city"><span data-i18n="clock.tehran">تهران</span><small>Tehran</small></div>
+          <div class="clock" data-tz="Asia/Tehran" role="img" aria-label="Tehran"></div>
+        </div>
+        <div class="clock-row">
+          <div class="clock-city"><span data-i18n="clock.hamburg">هامبورگ</span><small>Hamburg</small></div>
+          <div class="clock" data-tz="Europe/Berlin" role="img" aria-label="Hamburg"></div>
+        </div>
+        <div class="clock-row">
+          <div class="clock-city"><span data-i18n="clock.hongkong">هنگ‌کنگ</span><small>Hong Kong</small></div>
+          <div class="clock" data-tz="Asia/Hong_Kong" role="img" aria-label="Hong Kong"></div>
+        </div>
       </div>
     </div>
   </section>
@@ -186,6 +195,7 @@
 <script src="js/config.js"></script>
 <script src="js/lang/en.js"></script>
 <script src="js/main.js"></script>
+<script src="js/clock.js"></script>
 <script src="js/i18n.js"></script>
 </body>
 </html>
