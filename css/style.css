@@ -343,26 +343,6 @@ h1, h2, h3, p { margin: 0; }
   margin-bottom: 14px;
 }
 .section-head p { color: var(--text-dim); }
-.ornament {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 12px;
-  margin-bottom: 18px;
-}
-.ornament::before, .ornament::after {
-  content: "";
-  width: 56px;
-  height: 1px;
-  background: linear-gradient(90deg, transparent, var(--gold));
-}
-.ornament::after { transform: scaleX(-1); }
-.ornament i {
-  width: 8px;
-  height: 8px;
-  background: var(--gold);
-  transform: rotate(45deg);
-}
 
 /* Intro panel */
 .intro-panel {
