@@ -45,6 +45,7 @@
   var form = document.getElementById("contact-form");
   if (form) {
     var status = form.querySelector(".form-status");
+    function T(key, fa) { return window.I18N ? window.I18N.t(key, fa) : fa; }
     form.querySelector("#f-consent").addEventListener("change", function () {
       this.closest(".switch").classList.remove("invalid");
       if (this.checked) { status.textContent = ""; }
@@ -54,7 +55,7 @@
       var consent = form.querySelector("#f-consent");
       if (!consent.checked) {
         consent.closest(".switch").classList.add("invalid");
-        status.textContent = "برای ارسال پیام، لطفاً با سیاست حفظ حریم خصوصی موافقت کنید.";
+        status.textContent = T("msg.consent", "برای ارسال پیام، لطفاً با سیاست حفظ حریم خصوصی موافقت کنید.");
         return;
       }
       var cfg = window.SITE_CONFIG || {};
@@ -65,16 +66,16 @@
           .then(function (r) {
             if (!r.ok) { throw new Error(r.status); }
             form.reset();
-            status.textContent = "پیام شما با موفقیت ارسال شد. سپاسگزاریم.";
+            status.textContent = T("msg.sent", "پیام شما با موفقیت ارسال شد. سپاسگزاریم.");
           })
           .catch(function () {
-            status.textContent = "ارسال پیام ناموفق بود. لطفاً دوباره تلاش کنید.";
+            status.textContent = T("msg.failed", "ارسال پیام ناموفق بود. لطفاً دوباره تلاش کنید.");
           });
       } else if (cfg.email) {
-        var body = "نام: " + data.get("name") + "\nتماس: " + data.get("contact") + "\n\n" + data.get("message");
+        var body = T("msg.mailName", "نام") + ": " + data.get("name") + "\n" + T("msg.mailContact", "تماس") + ": " + data.get("contact") + "\n\n" + data.get("message");
         window.location.href = "mailto:" + cfg.email + "?subject=" + encodeURIComponent(data.get("subject") || "") + "&body=" + encodeURIComponent(body);
       } else {
-        status.textContent = "فرم تماس هنوز فعال نشده است.";
+        status.textContent = T("msg.inactive", "فرم تماس هنوز فعال نشده است.");
       }
     });
   }

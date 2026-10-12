@@ -16,15 +16,15 @@
 
 <header class="site-header">
   <div class="container header-inner">
-    <a class="brand" href="index.html" aria-label="زرین گستران"><img src="images/Logo.png" alt="زرین گستران هفت آسمان"></a>
+    <a class="brand" href="index.html" aria-label="زرین گستران"><img src="images/Logo.png" alt="زرین گستران هفت آسمان" data-i18n-alt="alt.logo"></a>
     <nav class="nav" id="nav">
       <a href="index.html" data-i18n="nav.home">صفحه اصلی</a>
       <a href="about.html" class="active" data-i18n="nav.about">درباره ما</a>
       <a href="activities.html" data-i18n="nav.activities">فعالیت ها</a>
       <a href="contact.html" data-i18n="nav.contact">تماس با ما</a>
-      <button class="lang-switch" type="button" aria-label="Language">EN</button>
     </nav>
-    <button class="nav-toggle" type="button" aria-label="منو" aria-expanded="false" aria-controls="nav"><span></span></button>
+    <button class="lang-toggle" type="button" role="switch" aria-checked="false" aria-label="Language / زبان"><span class="lt-knob" aria-hidden="true"></span><span class="lt-opt">FA</span><span class="lt-opt">EN</span></button>
+    <button class="nav-toggle" type="button" aria-label="منو" data-i18n-aria="aria.menu" aria-expanded="false" aria-controls="nav"><span></span></button>
   </div>
 </header>
 
@@ -43,7 +43,7 @@
           <p data-i18n="about.p1">گروه زرین گستران هفت آسمان یک شرکت پیشرو در زمینه واردات و صادرات و فعالیت‌های تجاری است. این شرکت با تخصص و تجربه خود، انواع خشکبار، میوه و صیفی‌جات را به کشورهای حوزه خلیج فارس صادر می‌کند. همچنین، انواع کشمش به کشورهای دیگر صادر می‌شود. زرین گستران در صادرات مواد غذایی و مواد شوینده و بهداشتی به سایر قاره‌ها نیز فعال است. در زمینه واردات، این شرکت کائوچو و انواع تایر خودروهای سبک و سنگین را از چندین کشور آسیایی وارد می‌کند و انواع تجهیزات و ماشین‌آلات صنعتی را از یک کشور اروپایی به کشور می‌آورد. علاوه بر این، واردات انواع دانه قهوه از قاره‌های دیگر نیز از فعالیت‌های مهم این شرکت می‌باشد. هدف گروه زرین گستران هفت آسمان ارائه خدمات با کیفیت و گسترش روابط تجاری در سطح بین‌المللی است.</p>
         </div>
         <figure class="about-photo glass reveal" style="--d:.15s">
-          <img src="images/office-center.jpg" alt="دفتر مرکزی زرین گستران" loading="lazy">
+          <img src="images/office-center.jpg" alt="دفتر مرکزی زرین گستران" data-i18n-alt="alt.office-center" loading="lazy">
         </figure>
       </div>
     </div>
@@ -53,7 +53,7 @@
     <div class="container">
       <div class="about-grid">
         <figure class="about-photo glass reveal">
-          <img src="images/business-plan.jpg" alt="برنامه کسب‌وکار" loading="lazy">
+          <img src="images/business-plan.jpg" alt="برنامه کسب‌وکار" data-i18n-alt="alt.business-plan" loading="lazy">
         </figure>
         <div class="about-text glass reveal" style="--d:.15s">
           <h2 data-i18n="goal.title">هدف ما</h2>
@@ -69,8 +69,8 @@
 <footer class="site-footer">
   <div class="container footer-inner">
     <div class="footer-brand">
-      <img src="images/Logo.png" alt="زرین گستران هفت آسمان">
-      <p>گروه زرین گستران هفت آسمان</p>
+      <img src="images/Logo.png" alt="زرین گستران هفت آسمان" data-i18n-alt="alt.logo">
+      <p data-i18n="footer.name">گروه زرین گستران هفت آسمان</p>
     </div>
     <div class="foot-info glass" id="foot-info"></div>
   </div>
@@ -78,8 +78,8 @@
 
 <script src="js/config.js"></script>
 <script src="js/lang/en.js"></script>
-<script src="js/main.js"></script>
 <script src="js/i18n.js"></script>
+<script src="js/main.js"></script>
 <script src="js/footer-info.js"></script>
 </body>
 </html>
