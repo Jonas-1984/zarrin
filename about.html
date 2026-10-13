@@ -7,11 +7,11 @@
   <meta name="description" content="آشنایی با شرکت زرین گستران؛ فعال در صادرات و واردات و ارائه خدمات تجاری بین‌المللی.">
   <meta name="theme-color" content="#111215">
   <link rel="icon" href="images/Logo.png">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <link rel="preload" href="fonts/vazirmatn-arabic.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="fonts/fonts.css">
   <link rel="stylesheet" href="css/style.css">
   <link rel="preload" as="image" href="images/hero.jpg" fetchpriority="high">
+  <link rel="canonical" href="https://www.zarrin7.com/about.html">
 </head>
 <body>
 
@@ -93,14 +93,26 @@
       <img src="images/Logo.png" width="664" height="321" decoding="async" alt="زرین گستران هفت آسمان" data-i18n-alt="alt.logo">
       <p data-i18n="footer.name">گروه زرین گستران هفت آسمان</p>
     </div>
+    <div class="foot-mid glass" aria-label="Quotes" role="region"></div>
     <div class="foot-info glass" id="foot-info"></div>
   </div>
+  <div class="container legal-bar">
+    <span class="legal-copy" data-i18n="legal.copy">© ۲۰۲۶ گروه زرین گستران هفت آسمان</span>
+    <nav class="legal-links" aria-label="Legal">
+      <a href="imprint.html" data-i18n="legal.imprint">اطلاعات قانونی (Impressum)</a>
+      <a href="privacy.html" data-i18n="legal.privacy">سیاست حفظ حریم خصوصی</a>
+      <a href="#" data-cookie-settings data-i18n="legal.cookies">تنظیمات کوکی‌ها</a>
+    </nav>
+  </div>
+  <p class="container credit"><span data-i18n="credit.label">طراحی وب‌سایت:</span> <a href="https://bitbins.de/" target="_blank" rel="noopener" dir="ltr">Jonas Shojaei</a></p>
 </footer>
 
 <script src="js/config.js"></script>
 <script src="js/lang/en.js"></script>
 <script src="js/i18n.js"></script>
+<script src="js/consent.js"></script>
 <script src="js/main.js"></script>
 <script src="js/footer-info.js"></script>
+<script src="js/quotes.js"></script>
 </body>
 </html>

@@ -96,8 +96,19 @@
 
   var last = null; // last weather payload, re-rendered on language change
 
+  // The weather comes from a third-party server (Open-Meteo), so it needs consent.
+  function allowed() { return !window.CONSENT || window.CONSENT.has("external"); }
+
   function renderWeather() {
     wxCity.textContent = T("wx.city", "تهران");
+    if (!allowed()) {
+      wxIcon.innerHTML = "";
+      wxTemp.textContent = "—";
+      wxCond.textContent = "";
+      wxSub.innerHTML = T("wx.consent", "نمایش آب‌وهوا نیاز به اجازه‌ی شما دارد.") +
+        '<br><a href="#" class="wx-enable" data-cookie-settings>' + T("wx.consent.link", "تنظیمات کوکی‌ها") + "</a>";
+      return;
+    }
     if (!last) { return; }
     var c = last.current, d = last.daily;
     var info = describe(c.weather_code, c.is_day === 1);
@@ -117,6 +128,7 @@
     "&daily=temperature_2m_max,temperature_2m_min&timezone=auto&forecast_days=1";
 
   function loadWeather() {
+    if (!allowed()) { return; }
     fetch(API)
       .then(function (r) {
         if (!r.ok) { throw new Error(r.status); }
@@ -135,4 +147,10 @@
   loadWeather();
   setInterval(loadWeather, 15 * 60 * 1000);
   if (window.I18N) { window.I18N.onChange(refresh); }
+  if (window.CONSENT) {
+    window.CONSENT.onChange(function () {
+      if (allowed()) { loadWeather(); } else { last = null; }
+      renderWeather();
+    });
+  }
 })();

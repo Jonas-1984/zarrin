@@ -60,16 +60,24 @@
       }
       var cfg = window.SITE_CONFIG || {};
       var data = new FormData(form);
+      if (!String(data.get("name") || "").trim() || !String(data.get("contact") || "").trim() || !String(data.get("message") || "").trim()) {
+        status.textContent = T("msg.required", "لطفاً نام، راه تماس و پیام خود را وارد کنید.");
+        return;
+      }
+      data.set("lang", window.I18N ? window.I18N.lang : "fa");
 
       if (cfg.formEndpoint) {
         fetch(cfg.formEndpoint, { method: "POST", body: data, headers: { Accept: "application/json" } })
           .then(function (r) {
+            if (r.status === 429) { throw new Error("rate"); }
             if (!r.ok) { throw new Error(r.status); }
             form.reset();
             status.textContent = T("msg.sent", "پیام شما با موفقیت ارسال شد. سپاسگزاریم.");
           })
-          .catch(function () {
-            status.textContent = T("msg.failed", "ارسال پیام ناموفق بود. لطفاً دوباره تلاش کنید.");
+          .catch(function (err) {
+            status.textContent = err && err.message === "rate"
+              ? T("msg.rate", "لطفاً چند لحظه صبر کنید و دوباره تلاش کنید.")
+              : T("msg.failed", "ارسال پیام ناموفق بود. لطفاً دوباره تلاش کنید یا به info@zarrin7.com ایمیل بزنید.");
           });
       } else if (cfg.email) {
         var body = T("msg.mailName", "نام") + ": " + data.get("name") + "\n" + T("msg.mailContact", "تماس") + ": " + data.get("contact") + "\n\n" + data.get("message");
