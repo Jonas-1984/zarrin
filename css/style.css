@@ -37,7 +37,7 @@ body {
   overflow-x: hidden;
 }
 
-img { max-width: 100%; display: block; }
+img { max-width: 100%; height: auto; display: block; }
 a { color: inherit; text-decoration: none; }
 h1, h2, h3, p { margin: 0; }
 
@@ -412,10 +412,16 @@ html[lang="en"] .clock-city small { display: none; }
 }
 
 /* Three image cards */
-.cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; }
+/* Each card spans two rows of a shared subgrid (image space, text box),
+   so all text boxes in one row get the height of the tallest. */
+.cards { display: grid; grid-template-columns: repeat(3, 1fr); grid-auto-rows: var(--card-top, 220px) auto; gap: 28px; }
 .card {
   position: relative;
-  height: 440px;
+  display: grid;
+  grid-row: span 2;
+  grid-template-rows: subgrid;
+  row-gap: 0;
+  padding: 14px;
   border-radius: var(--radius);
   overflow: hidden;
   border: 1px solid var(--line);
@@ -439,8 +445,7 @@ html[lang="en"] .clock-city small { display: none; }
 }
 .card:hover img { transform: scale(1.08); }
 .card-body {
-  position: absolute;
-  inset: auto 14px 14px 14px;
+  grid-row: 2;
   padding: 20px 22px;
   border-radius: 14px;
   background: rgba(17, 18, 21, 0.45);
@@ -522,6 +527,63 @@ html[lang="en"] .clock-city small { display: none; }
 }
 .about-photo img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transition: transform 1.4s var(--ease); }
 .about-photo:hover img { transform: scale(1.05); }
+/* Leadership cards: round photo (always on the left) + name/role, animated gold border */
+@property --leader-angle { syntax: "<angle>"; initial-value: 0deg; inherits: false; }
+.leaders { display: grid; gap: 28px; }
+.leader {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  padding: 32px 44px;
+  border-color: transparent;
+  overflow: hidden;
+}
+html[dir="rtl"] .leader { flex-direction: row-reverse; }
+.leader::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  padding: 1px;
+  border-radius: inherit;
+  background: conic-gradient(from var(--leader-angle), var(--line) 0deg, var(--line) 250deg, var(--gold-dark) 290deg, #fff6d5 320deg, var(--gold) 340deg, var(--line) 360deg);
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask: linear-gradient(#000 0 0) content-box exclude, linear-gradient(#000 0 0);
+  animation: leader-spin 6s linear infinite;
+  pointer-events: none;
+}
+.leader::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(115deg, transparent 40%, rgba(243, 217, 139, 0.08) 50%, transparent 60%);
+  transform: translateX(-100%);
+  animation: leader-shine 7s var(--ease) infinite;
+  pointer-events: none;
+}
+.leaders .leader:nth-child(2)::before { animation-delay: -3s; }
+.leaders .leader:nth-child(2)::after { animation-delay: 3.5s; }
+@keyframes leader-spin { to { --leader-angle: 360deg; } }
+@keyframes leader-shine { 0%, 60% { transform: translateX(-100%); } 100% { transform: translateX(100%); } }
+.leader-photo {
+  flex: none;
+  width: 130px;
+  height: 130px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid var(--gold);
+  box-shadow: 0 0 0 5px rgba(212, 175, 55, 0.12), 0 10px 30px rgba(0, 0, 0, 0.4);
+}
+.leader-text { flex: 1; min-width: 0; }
+.leader-text h2 { font-size: 26px; font-weight: 800; line-height: 1.5; }
+.leader-text p { color: var(--text-dim); font-size: 17px; font-weight: 400; margin-top: 4px; }
+@media (max-width: 640px) {
+  .leader { gap: 18px; padding: 22px; }
+  .leader-photo { width: 88px; height: 88px; }
+  .leader-text h2 { font-size: 21px; }
+  .leader-text p { font-size: 15px; }
+}
 @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
 
 
@@ -663,7 +725,7 @@ html[lang="en"] .clock-city small { display: none; }
   body { font-size: 16px; }
   .section { padding-block: 70px; }
   .cards, .services, .form-row { grid-template-columns: 1fr; }
-  .card { height: 380px; }
+  .cards { --card-top: 170px; }
   .hero-content { padding: 32px 20px; }
   .about-text, .form { padding: 28px 22px; }
   .lane { height: 96px; }

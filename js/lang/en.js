@@ -48,6 +48,10 @@ window.I18N_EN = {
   "goal.p1": "Zarrin Gostaran Haft Aseman Group is a trading company active in import and export. Drawing on its expertise and experience, the company maintains effective relationships with business partners all over the world. Our goal is to provide services that meet our customers' needs and earn their satisfaction. By focusing on quality and trustworthiness, we strive to offer our customers the best products and services.",
   "goal.p2": "We seek to build lasting and reliable relationships with our customers and business partners, so that together we can step toward a brighter future. We strive to move along the path of growth and development by using the best business practices and today's technologies, and to play an effective part in raising the level of international trade. In addition, we believe in the continuous improvement of work processes and in increasing productivity. This is achieved through ongoing staff training and by raising their technical and professional skills.",
   "goal.p3": "Finally, our goal is to create a positive, energetic working environment in which all team members can cooperate in the best possible way and achieve even greater success. Zarrin Gostaran Haft Aseman Group is committed to its obligations and strives to earn the trust and loyalty of its customers by providing outstanding services.",
+  "leader.zarrin.name": "Mehdi Zarrin",
+  "leader.zarrin.role": "CEO",
+  "leader.shojaei.name": "Meysam Shojaei",
+  "leader.shojaei.role": "Chairman of the Board",
 
   // activities
   "act.sub": "Commercial and international transport services",
